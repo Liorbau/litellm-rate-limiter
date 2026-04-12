@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+
+raw_notes.md
+raw_NOTES.md
+litellm_rate_limiter.zip

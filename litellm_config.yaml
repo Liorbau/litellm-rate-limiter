@@ -1,0 +1,19 @@
+# LiteLLM proxy: two deployments behind one model name (load balancing).
+# Provider keys: TEAM_A_API_KEY and TEAM_B_API_KEY (see README).
+# Admin/client auth to the proxy: set LITELLM_MASTER_KEY in the environment.
+
+model_list:
+  - model_name: my-model
+    litellm_params:
+      model: openai/gpt-4o-mini
+      api_key: os.environ/TEAM_A_API_KEY
+      rpm: 100
+  - model_name: my-model
+    litellm_params:
+      model: openai/gpt-4o-mini
+      api_key: os.environ/TEAM_B_API_KEY
+      rpm: 100
+
+router_settings:
+  enable_pre_call_checks: true
+  routing_strategy: simple-shuffle
