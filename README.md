@@ -5,7 +5,7 @@
     <a href="https://docs.litellm.ai/"><img src="https://img.shields.io/badge/LiteLLM_Proxy-6366f1?style=for-the-badge" alt="LiteLLM Proxy" /></a>
 </p>
 
-**Why:** This repo exercises a realistic LiteLLM Proxy setup—multiple provider deployments and client that respects the proxy’s declared RPM. It mirrors how you would validate routing and budgets before pointing production callers at the gateway: discover limits from `/v1/model/info`, measure end-to-end latency, then pace concurrent requests so sustained load stays within rate limits instead of relying on downstream 429s.
+This repo exercises a realistic LiteLLM proxy setup. Multiple provider deployments and client.
 
 **Stack:** LiteLLM (`litellm_config.yaml`) · asyncio client (`rate_limiter.py`) · smoke tests (`test_config.py`).
 
@@ -27,4 +27,3 @@ docker run --rm -p 4000:4000 \
 
 4. With the proxy on `http://localhost:4000`: `python test_config.py` then `python rate_limiter.py`.
 
-MIT — [LICENSE](LICENSE).
